@@ -26,17 +26,30 @@ app.use((req, res, next) => {
     next();
 }); /// exposes session to ejs templates
 
+/// data
+let employeedata = {};
 
-/// route handler
-const routeFiles = fs.readdirSync('./routes')
-    .filter(file => ( file.endsWith('.js') && !file.startsWith('_') ));
-for (const file of routeFiles) {
-	const route = require(`./routes/${file}`);
-    routePath = file.slice(0,-3);
-    if (file=='home.js') routePath="";
-	app.use(`/${routePath}`, route);
-}
-// console.log("Routes:", routeFiles);
+/// routes
+
+app.get('/', (req, res)=> { 
+
+    res.render('home', {
+        title: 'Employees', 
+        employeedata
+    }); 
+
+});
+
+// /// route handler
+// const routeFiles = fs.readdirSync('./routes')
+//     .filter(file => ( file.endsWith('.js') && !file.startsWith('_') ));
+// for (const file of routeFiles) {
+// 	const route = require(`./routes/${file}`);
+//     routePath = file.slice(0,-3);
+//     if (file=='home.js') routePath="";
+// 	app.use(`/${routePath}`, route);
+// }
+// // console.log("Routes:", routeFiles);
 
 /// server
 const server = app.listen(APP_PORT, () => {
