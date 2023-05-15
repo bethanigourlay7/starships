@@ -1,8 +1,4 @@
 <%- include("top", {title}) %>
-    <!-- Most commonly used buttons -->
-    <button class="btn" type="button">Add</button>
-
-    <% employeeData.forEach((employee) => { %>
 
     <div class="card w-50">
         <div class="card-body">
@@ -11,11 +7,8 @@
             <p class="card-text">Role: <%=employee.role %></p>
             <p class="card-text">Address: <%=employee.address %></p>
             <p class="card-text">Salary: <%=employee.salary %></p>
-            <a class="btn btn-primary" type="button" href="/employee?n=<%=employee.employee_number %>">View</a>
             <a class="btn btn-danger" type="button" href="/edit?n=<%=employee.employee_number %>">Edit</a>
         </div>
     </div>
-
-    <%  }); %> 
 
 <%- include("bottom") %>

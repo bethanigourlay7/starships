@@ -19,14 +19,14 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true})); 
 
 /// my middleware
-// app.use((req, res, next) => {
-//     res.locals.query = req.query;
-//     res.locals.user_id = req.session.user_id;
-//     res.locals.member = req.session.sess_valid;
-//     next();
-// }); /// exposes session to ejs templates
+app.use((req, res, next) => {
+    res.locals.query = req.query;
+    // res.locals.user_id = req.session.user_id;
+    // res.locals.member = req.session.sess_valid;
+    next();
+}); /// exposes session to ejs templates
 
-/// data
+/// initial data
 let employeeData = [
     {first_name: "Seamus", last_name: "McBride",salary: 30000, role : "Ejit", address: "here", employee_number: 42069},
     {first_name: "Sam", last_name: "Millar",salary: 40000, role : "Tech Lead", address: "here", employee_number: 420670},
@@ -46,14 +46,47 @@ app.get('/', (req, res)=> {
 
 });
 
-app.get('/viewemployee', (req, res)=> { 
+app.get('/employee', (req, res)=> { 
 
-    let index = req.index;
+    try {
 
-    res.render('home', {
-        title: 'Employees', 
-        employee: employeeData[index]
+        let n = req.query.n;
+
+        let employee = {};
+
+        for (i = 0; i < employeeData.length; i++) {
+            if (employeeData[i].employee_number == n) employee = employeeData[i];
+        };
+
+        res.render('employee', {
+            title: `Employee ${n}`, 
+            employee
+        }); 
+
+    } catch {
+
+        res.redirect('/');
+
+    }
+
+});
+
+app.get('/addemployee', (req, res)=> { 
+
+    res.render('addemployee', {
+        title: 'Add employee'
     }); 
+
+});
+
+app.post('/addemployee', (req, res)=> { 
+
+    let { first_name, last_name, salary, role, address, employee_number } = req.body;
+    let employee = {first_name, last_name, salary, role, address, employee_number};
+
+    employeeData.push(employee);
+
+    res.redirect('/'); 
 
 });
 
