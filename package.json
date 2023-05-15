@@ -1,0 +1,26 @@
+{
+  "name": "starships",
+  "version": "1.0.0",
+  "description": "Sam's edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethanigourlay7/starships.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bethanigourlay7/starships/issues"
+  },
+  "homepage": "https://github.com/bethanigourlay7/starships#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-sessions": "^1.0.6",
+    "fs": "^0.0.1-security"
+  }
+}
