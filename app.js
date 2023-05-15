@@ -71,18 +71,20 @@ app.get('/employee', (req, res)=> {
 
 });
 
-app.get('/addemployee', (req, res)=> { 
+app.get('/add', (req, res)=> { 
 
-    res.render('addemployee', {
-        title: 'Add employee'
+   let roles = [];
+    res.render('add', {
+        title: 'Add employee',
+        roles
     }); 
 
 });
 
-app.post('/addemployee', (req, res)=> { 
+app.post('/add', (req, res)=> { 
 
-    let { first_name, last_name, salary, role, address, employee_number } = req.body;
-    let employee = {first_name, last_name, salary, role, address, employee_number};
+    let { firstName, lastName, employeeSalary, role, address, employeeID} = req.body;
+    let employee = {firstName, lastName, employeeSalary, role, address, employeeID};
 
     employeeData.push(employee);
 
