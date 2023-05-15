@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Most commonly used buttons -->
     <button class="btn" type="button">Add</button>
+
+    <% employeeData.forEach(employee) => { %>
+
+    <div class="card w-50">
+        <div class="card-body">
+            <h5 class="card-title"><%=employee.name %></h5>
+            <p class="card-text"><%=employee.id %></p>
+            <p class="card-text"><%=employee.jobTitle %></p>
+            <p class="card-text"><%=employee.address %></p>
+            <p class="card-text"><%=employee.salary %></p>
+            <!-- <button class="btn btn-primary" type="button">View</button> -->
+            <button class="btn btn-danger" type="button">Delete</button>
+            <button class="btn btn-link" type="button">Edit</button>
+        </div>
+    </div>
+
+    <%  } %> 
+</body>
+
+</html>
