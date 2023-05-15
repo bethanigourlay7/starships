@@ -7,13 +7,12 @@
     <div class="card w-50">
         <div class="card-body">
             <h5 class="card-title"><%=employee.first_name %> <%=employee.last_name %></h5>
-            <p class="card-text"><%=employee.employee_number %></p>
-            <p class="card-text"><%=employee.role %></p>
-            <p class="card-text"><%=employee.address %></p>
-            <p class="card-text"><%=employee.salary %></p>
+            <p class="card-text">Employee number:<%=employee.employee_number %></p>
+            <p class="card-text">Role: <%=employee.role %></p>
+            <p class="card-text">Address: <%=employee.address %></p>
+            <p class="card-text">Salary: <%=employee.salary %></p>
             <a class="btn btn-primary" type="button" href="/employee?n=<%=employee.employee_number %>">View</a>
-            <button class="btn btn-danger" type="button">Delete</button>
-            <button class="btn btn-danger" type="button">Edit</button>
+            <a class="btn btn-danger" type="button" href="/edit?n=<%=employee.employee_number %>">Edit</a>
         </div>
     </div>
 
