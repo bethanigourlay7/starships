@@ -1,6 +1,6 @@
 <%- include("top", {title}) %>
 
-    <form>
+    <form method="post" action="/add">
         <div class="mb-3">
             <label for="firstName" class="form-label">Employee's First Name</label>
             <input type="text" class="form-control" id="firstName" placeholder="Employee's First Name" required="">
@@ -32,7 +32,7 @@
 
         <div class="mb-3">
             <label for="address" class="form-label">Employee's Address</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Employee's Address" required="">
+            <input type="text" class="form-control" id="address" placeholder="Employee's Address" required="">
         </div> 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
