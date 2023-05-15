@@ -15,13 +15,13 @@
     <!-- Most commonly used buttons -->
     <button class="btn" type="button">Add</button>
 
-    <% employeeData.forEach(employee) => { %>
+    <% employeeData.forEach((employee) => { %>
 
     <div class="card w-50">
         <div class="card-body">
-            <h5 class="card-title"><%=employee.name %></h5>
-            <p class="card-text"><%=employee.id %></p>
-            <p class="card-text"><%=employee.jobTitle %></p>
+            <h5 class="card-title"><%=employee.first_name %> <%=employee.last_name %></h5>
+            <p class="card-text"><%=employee.employee_number %></p>
+            <p class="card-text"><%=employee.role %></p>
             <p class="card-text"><%=employee.address %></p>
             <p class="card-text"><%=employee.salary %></p>
             <!-- <button class="btn btn-primary" type="button">View</button> -->
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <%  } %> 
+    <%  }); %> 
 </body>
 
 </html>
