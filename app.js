@@ -101,14 +101,15 @@ app.post('/add', (req, res) => {
 
 
     let employee = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        employeeSalary: req.body.employeeSalary,
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        salary: req.body.employeeSalary,
         role: req.body.jobTitle,
         address: req.body.address,
-        employeeID: req.body.employeeID
+        employee_number: req.body.employeeID
     };
 
+    console.log(employee.role);
     employeeData.push(employee);
 
     res.redirect('/');
