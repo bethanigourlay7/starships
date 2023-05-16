@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     // res.locals.user_id = req.session.user_id;
     // res.locals.member = req.session.sess_valid;
     next();
-}); /// exposes session to ejs templates
+}); /// exposes query and session to ejs templates
 
 
 // roles data
@@ -45,9 +45,9 @@ let roles = [
 ]
 /// initial data
 let employeeData = [
-    { first_name: "Seamus", last_name: "McBride", salary: 30000, role: "Ejit", address: "here", employee_number: 42069 },
-    { first_name: "Sam", last_name: "Millar", salary: 40000, role: "Tech Lead", address: "here", employee_number: 420670 },
-    { first_name: "Paula", last_name: "Sankiewicz", salary: 50000, role: "UX Lead", address: "here", employee_number: 42071 },
+    { first_name: "Seamus", last_name: "McBride", salary: 30000, role: "Project Manager", address: "here", employee_number: 42069 },
+    { first_name: "Sam", last_name: "Millar", salary: 40000, role: "Tech Lead", address: "here", employee_number: 42070 },
+    { first_name: "Paula", last_name: "Santkiewicz", salary: 50000, role: "UX Lead", address: "here", employee_number: 42071 },
     { first_name: "Bethani", last_name: "Gourlay", salary: 60000, role: "UI Lead", address: "here", employee_number: 42072 },
     { first_name: "Dylan", last_name: "Robinson", salary: 70000, role: "Database Manager", address: "here", employee_number: 42073 },
 ];
