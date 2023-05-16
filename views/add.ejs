@@ -15,10 +15,10 @@
             <input type="text" class="form-control" name="employeeID" placeholder="Employee's ID" required="">
         </div>
 
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" name="jobTitle" aria-label="Default select example">
                 <option selected>Select Job Title</option>
                 <% roles.forEach((role)=> { %>
-                <option name= "jobTitle" value="<%=role.role%>">
+                <option  value="<%=role.role%>">
                     <%=role.role%>
                 </option>
                 <% }) %>
