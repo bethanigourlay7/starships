@@ -15,7 +15,7 @@
             <p class="card-text">Address: <%=employee.address %></p>
             <p class="card-text">Salary: <%=employee.salary %></p>
             <a class="btn btn-primary" type="button" href="/edit?n=<%=employee.employee_number %>">Edit</a>
-            <form method="post" action="/delete">
+            <form method="post" action="/delete" onsubmit="return confirm('Sure you want to delete this employee?')">
             <input type = "hidden" name ="n" value = "<%=query.n%>">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
