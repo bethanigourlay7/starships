@@ -155,10 +155,10 @@ app.post("/delete", (req, res) => {
 
 
 const index = function findEmployeeNumber(employeeData) {
-  for(var indexnum = 0; indexnum < employeeData.length; ++i) {
-    var object = arr[i];
+  for(var indexnum = 0; indexnum < employeeData.length; ++indexnum) {
+    var object = arr[indexnum];
     if(object.employee_number == employeedelete) {
-      return i;
+      return indexnum;
     }
   }
   return -1;
