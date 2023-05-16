@@ -1,0 +1,38 @@
+<%- include("top", {title}) %>
+
+    <form method="post" action="/add">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Edit First Name</label>
+            <input type="text" class="form-control" name="firstName" placeholder="Employee's First Name" required="">
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Edit Last Name </label>
+            <input type="text" class="form-control" name="lastName" placeholder="Employee's Last Name" required="">
+        </div>
+
+        <label for="Job_title" class="form-label">Edit Job Role </label>
+
+        <select class="form-select" name="jobTitle" aria-label="Default select example">
+                <option selected>Select Job Title</option>
+                <% roles.forEach((role)=> { %>
+                <option  value="<%=role.role%>">
+                    <%=role.role%>
+                </option>
+                <% }) %>
+        </select>
+        
+
+        <div class="mb-3">
+            <label for="employeeNumber" class="form-label">Edit salary</label>
+            <input type="number" class="form-control" name="employeeSalary" placeholder="Employee's salary"
+                required="">
+        </div>
+
+        <div class="mb-3">
+            <label for="address" class="form-label">Edit Address</label>
+            <input type="text" class="form-control" name="address" placeholder="Employee's Address" required="">
+        </div> 
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+<%- include("bottom") %>
