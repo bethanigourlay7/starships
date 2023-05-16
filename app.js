@@ -97,6 +97,20 @@ app.get('/add', (req, res) => {
 
 });
 
+app.get('/edit', (req, res) => {
+
+    let employeeNum = req.query.n;
+    
+    let employee = employeeData.filter((employee) => {
+        return employee.employee_number.toString() === employeeNum;
+    });
+    res.render('edit', employee[0]);
+});
+
+app.post('/edit', (req, res) => {
+
+});
+
 app.post('/add', (req, res) => {
 
 
@@ -116,10 +130,10 @@ app.post('/add', (req, res) => {
 
 });
 
-app.get('/login', (req,res) => {
+app.get('/login', (req, res) => {
 
     let title = "Login";
-    res.render("login", {title});
+    res.render("login", { title });
 });
 
 
