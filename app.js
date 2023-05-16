@@ -100,17 +100,29 @@ app.get('/add', (req, res) => {
 app.get('/edit', (req, res) => {
 
     let employeeNum = req.query.n;
-    
+
     let employee = employeeData.filter((employee) => {
         return employee.employee_number.toString() === employeeNum;
     });
-   
+
     res.render('edit', {
-         title: 'Edit employees', employee, roles});
+        title: 'Edit employees', employee, roles
+    });
 });
 
 app.post('/edit', (req, res) => {
+    let employeeNum = req.query.n;
 
+    let index = employeeData.findIndex((emp) =>  {
+       return emp.employee_number.toString() === employeeNum});
+
+    if (index !== -1) {
+        employeeData[index].salary = req.body.employeeSalary;
+    }
+    
+    res.render('edit', {
+        title: 'Edit employees', roles
+    });
 });
 
 app.post('/add', (req, res) => {
