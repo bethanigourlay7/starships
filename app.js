@@ -99,9 +99,15 @@ app.get('/add', (req, res) => {
 
 app.post('/add', (req, res) => {
 
-    let { firstName, lastName, employeeSalary, role, address, employeeID } = req.body;
 
-    let employee = { firstName, lastName, employeeSalary, role, address, employeeID };
+    let employee = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        employeeSalary: req.body.employeeSalary,
+        role: req.body.jobTitle,
+        address: req.body.address,
+        employeeID: req.body.employeeID
+    };
 
     employeeData.push(employee);
 

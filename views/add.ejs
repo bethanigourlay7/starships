@@ -3,22 +3,22 @@
     <form method="post" action="/add">
         <div class="mb-3">
             <label for="firstName" class="form-label">Employee's First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Employee's First Name" required="">
+            <input type="text" class="form-control" name="firstName" placeholder="Employee's First Name" required="">
         </div>
         <div class="mb-3">
             <label for="lastName" class="form-label">Employee's Last Name </label>
-            <input type="text" class="form-control" id="lastName" placeholder="Employee's Last Name" required="">
+            <input type="text" class="form-control" name="lastName" placeholder="Employee's Last Name" required="">
         </div>
 
         <div class="mb-3">
             <label for="employeeNumber" class="form-label">Employee's ID</label>
-            <input type="text" class="form-control" id="employeeID" placeholder="Employee's ID" required="">
+            <input type="text" class="form-control" name="employeeID" placeholder="Employee's ID" required="">
         </div>
 
         <select class="form-select" aria-label="Default select example">
                 <option selected>Select Job Title</option>
                 <% roles.forEach((role)=> { %>
-                <option value="<%=role.role_id%>">
+                <option name= "jobTitle" value="<%=role.role%>">
                     <%=role.role%>
                 </option>
                 <% }) %>
@@ -27,13 +27,13 @@
 
         <div class="mb-3">
             <label for="employeeNumber" class="form-label">Employee's salary</label>
-            <input type="number" class="form-control" id="employeeSalary" placeholder="Employee's salary"
+            <input type="number" class="form-control" name="employeeSalary" placeholder="Employee's salary"
                 required="">
         </div>
 
         <div class="mb-3">
             <label for="address" class="form-label">Employee's Address</label>
-            <input type="text" class="form-control" id="address" placeholder="Employee's Address" required="">
+            <input type="text" class="form-control" name="address" placeholder="Employee's Address" required="">
         </div> 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
