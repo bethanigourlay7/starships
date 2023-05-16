@@ -2,14 +2,12 @@
     <!-- Most commonly used buttons -->
     <a class="btn btn-danger" type="button" href="/add">Add</a>
 
-
-
     <% employeeData.forEach((employee) => { %>
 
     <div class="card w-50">
         <div class="card-body">
             <h5 class="card-title"><%=employee.first_name %> <%=employee.last_name %></h5>
-            <p class="card-text">Employee number:<%=employee.employee_number %></p>
+            <p class="card-text">Employee number: <%=employee.employee_number %></p>
             <p class="card-text">Role: <%=employee.role %></p>
             <p class="card-text">Address: <%=employee.address %></p>
             <p class="card-text">Salary: <%=employee.salary %></p>

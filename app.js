@@ -100,6 +100,7 @@ app.get('/add', (req, res) => {
 app.post('/add', (req, res) => {
 
     let { firstName, lastName, employeeSalary, role, address, employeeID } = req.body;
+
     let employee = { firstName, lastName, employeeSalary, role, address, employeeID };
 
     employeeData.push(employee);
