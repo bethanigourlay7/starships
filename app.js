@@ -150,12 +150,12 @@ app.post("/delete", (req, res) => {
  employeedelete = parseInt(employeedelete);
 
 //  console.log(employeedelete)
-//   employeedelete = employeedelete.toString();
+//   employeedelete = employeedelete.toString(); 
 
 
 
 
-let index = function findEmployeeNumber(employeeData) {
+const index = function findEmployeeNumber(employeeData) {
   for(var i = 0; i < employeeData.length; ++i) {
     var obj = arr[i];
     if(obj.employee_number == employeedelete) {
