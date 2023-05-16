@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 //     resave: false
 //     })
 // );
-app.use(express.urlencoded({extended: true})); 
+app.use(express.urlencoded({ extended: true }));
 
 /// my middleware
 app.use((req, res, next) => {
@@ -26,27 +26,44 @@ app.use((req, res, next) => {
     next();
 }); /// exposes session to ejs templates
 
+
+// roles data
+let roles = [
+    { role_id: 1, role: "Tech Lead" },
+
+    { role_id: 2, role: "Senior Security Engineer" },
+
+    { role_id: 3, role: "Software Engineer" },
+
+    { role_id: 4, role: "UX Lead" },
+
+    { role_id: 5, role: "Data Architect" },
+
+    { role_id: 6, role: "UI Lead" },
+
+    { role_id: 7, role: "Workday Consultant" }
+]
 /// initial data
 let employeeData = [
-    {first_name: "Seamus", last_name: "McBride",salary: 30000, role : "Ejit", address: "here", employee_number: 42069},
-    {first_name: "Sam", last_name: "Millar",salary: 40000, role : "Tech Lead", address: "here", employee_number: 420670},
-    {first_name: "Paula", last_name: "Sankiewicz",salary: 50000, role : "UX Lead", address: "here", employee_number: 42071},
-    {first_name: "Bethani", last_name: "Gourlay",salary: 60000, role : "UI Lead", address: "here", employee_number: 42072},
-    {first_name: "Dylan", last_name: "Robinson",salary: 70000, role : "Database Manager", address: "here", employee_number: 42073},
+    { first_name: "Seamus", last_name: "McBride", salary: 30000, role: "Ejit", address: "here", employee_number: 42069 },
+    { first_name: "Sam", last_name: "Millar", salary: 40000, role: "Tech Lead", address: "here", employee_number: 420670 },
+    { first_name: "Paula", last_name: "Sankiewicz", salary: 50000, role: "UX Lead", address: "here", employee_number: 42071 },
+    { first_name: "Bethani", last_name: "Gourlay", salary: 60000, role: "UI Lead", address: "here", employee_number: 42072 },
+    { first_name: "Dylan", last_name: "Robinson", salary: 70000, role: "Database Manager", address: "here", employee_number: 42073 },
 ];
 
 /// routes
 
-app.get('/', (req, res)=> { 
+app.get('/', (req, res) => {
 
     res.render('home', {
-        title: 'Employees', 
+        title: 'Employees',
         employeeData
-    }); 
+    });
 
 });
 
-app.get('/employee', (req, res)=> { 
+app.get('/employee', (req, res) => {
 
     try {
 
@@ -59,9 +76,9 @@ app.get('/employee', (req, res)=> {
         };
 
         res.render('employee', {
-            title: `Employee ${n}`, 
+            title: `Employee ${n}`,
             employee
-        }); 
+        });
 
     } catch {
 
@@ -71,26 +88,40 @@ app.get('/employee', (req, res)=> {
 
 });
 
-app.get('/add', (req, res)=> { 
+app.get('/add', (req, res) => {
 
-   let roles = [];
     res.render('add', {
         title: 'Add employee',
         roles
-    }); 
+    });
 
 });
 
-app.post('/add', (req, res)=> { 
+app.post('/add', (req, res) => {
 
-    let { firstName, lastName, employeeSalary, role, address, employeeID} = req.body;
-    let employee = {firstName, lastName, employeeSalary, role, address, employeeID};
 
+    let employee = {
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        salary: req.body.employeeSalary,
+        role: req.body.jobTitle,
+        address: req.body.address,
+        employee_number: req.body.employeeID
+    };
+
+    console.log(employee.role);
     employeeData.push(employee);
 
-    res.redirect('/'); 
+    res.redirect('/');
 
 });
+
+app.get('/login', (req,res) => {
+
+    let title = "Login";
+    res.render("login", {title});
+});
+
 
 // /// route handler
 // const routeFiles = fs.readdirSync('./routes')
