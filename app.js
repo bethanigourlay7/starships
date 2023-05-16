@@ -44,46 +44,12 @@ let roles = [
 ];
 /// initial data
 let employeeData = [
-  {
-    first_name: "Seamus",
-    last_name: "McBride",
-    salary: 30000,
-    role: "Ejit",
-    address: "here",
-    employee_number: 42069,
-  },
-  {
-    first_name: "Sam",
-    last_name: "Millar",
-    salary: 40000,
-    role: "Tech Lead",
-    address: "here",
-    employee_number: 420670,
-  },
-  {
-    first_name: "Paula",
-    last_name: "Sankiewicz",
-    salary: 50000,
-    role: "UX Lead",
-    address: "here",
-    employee_number: 42071,
-  },
-  {
-    first_name: "Bethani",
-    last_name: "Gourlay",
-    salary: 60000,
-    role: "UI Lead",
-    address: "here",
-    employee_number: 42072,
-  },
-  {
-    first_name: "Dylan",
-    last_name: "Robinson",
-    salary: 70000,
-    role: "Database Manager",
-    address: "here",
-    employee_number: 42073,
-  },
+    { first_name: "Seamus", last_name: "McBride", salary: 30000, role: "Ejit", address: "here", employee_number: 42069 },
+    { first_name: "Sam", last_name: "Millar", salary: 40000, role: "Tech Lead", address: "here", employee_number: 420670 },
+    { first_name: "Paula", last_name: "Santkiewicz", salary: 50000, role: "UX Lead", address: "here", employee_number: 42071 },
+    { first_name: "Bethani", last_name: "Gourlay", salary: 60000, role: "UI Lead", address: "here", employee_number: 42072 },
+    { first_name: "Dylan", last_name: "Robinson", salary: 70000, role: "Database Manager", address: "here", employee_number: 42073 },
+
 ];
 
 /// routes
@@ -142,16 +108,55 @@ app.get("/login", (req, res) => {
   res.render("login", { title });
 });
 
+app.get('/edit', (req, res) => {
+
+    let employeeNum = req.query.n;
+    let employee = employeeData.filter((employee) => {
+        return employee.employee_number.toString() === employeeNum;
+    });
+
+    res.render('edit', {
+        title: 'Edit employees', employee, roles, employeeNum
+    });
+});
+
+app.post('/edit', (req, res) => {
+    let employeeNum = req.body.employeeNumber;
+    console.log("in post route");
+
+
+    let employee = employeeData.filter((employee) => {
+        return employee.employee_number.toString() === employeeNum;
+    });
+    let index = employeeData.findIndex((emp) => {
+        return emp.employee_number.toString() === employeeNum
+    });
+
+    if (index !== -1) {
+        employeeData[index].salary = req.body.employeeSalary;
+        employeeData[index].first_name = req.body.firstName;
+        employeeData[index].last_name = req.body.lastName;
+        employeeData[index].address = req.body.address;
+        employeeData[index].role = req.body.jobTitle;
+
+    }
+
+    // res.render('edit', {
+    //     title: 'Edit employees', roles, employee, employeeNum
+    // });
+    res.redirect('/');
+});
+
+
+
+
+
 app.post("/delete", (req, res) => {
  let employeedelete = req.body.n;
 
 
 
  employeedelete = parseInt(employeedelete);
-
-
-
-
 
 
 const index = function findEmployeeNumber(employeeData) {
@@ -167,9 +172,11 @@ const index = function findEmployeeNumber(employeeData) {
 
 
 
+
   employeeData.splice(index, 1);
 
   res.redirect("/");
+
 });
 
 // /// route handler
