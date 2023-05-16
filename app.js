@@ -104,7 +104,9 @@ app.get('/edit', (req, res) => {
     let employee = employeeData.filter((employee) => {
         return employee.employee_number.toString() === employeeNum;
     });
-    res.render('edit', employee[0]);
+   
+    res.render('edit', {
+         title: 'Edit employees', employee, roles});
 });
 
 app.post('/edit', (req, res) => {
