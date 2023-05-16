@@ -116,6 +116,13 @@ app.post('/add', (req, res) => {
 
 });
 
+app.get('/login', (req,res) => {
+
+    let title = "Login";
+    res.render("login", {title});
+});
+
+
 // /// route handler
 // const routeFiles = fs.readdirSync('./routes')
 //     .filter(file => ( file.endsWith('.js') && !file.startsWith('_') ));
