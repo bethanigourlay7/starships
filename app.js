@@ -130,10 +130,8 @@ app.post('/edit', (req, res) => {
 
     }
 
-    // res.render('edit', {
-    //     title: 'Edit employees', roles, employee, employeeNum
-    // });
     res.redirect('/');
+    
 });
 
 app.post('/add', (req, res) => {
