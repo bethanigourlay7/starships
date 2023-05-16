@@ -1,15 +1,27 @@
 <%- include("top", {title}) %>
 
+
     <div class="card w-50">
+        
+          
         <div class="card-body">
+
+
+            
+
             <h5 class="card-title"><%=employee.first_name %> <%=employee.last_name %></h5>
             <p class="card-text">Employee number: <%=employee.employee_number %></p>
             <p class="card-text">Role: <%=employee.role %></p>
             <p class="card-text">Address: <%=employee.address %></p>
             <p class="card-text">Salary: <%=employee.salary %></p>
-            <a class="btn btn-danger" type="button" href="/edit?n=<%=employee.employee_number %>">Edit</a>
-            <a class="btn btn-danger" type="button">Delete</a>
+            <a class="btn btn-primary" type="button" href="/edit?n=<%=employee.employee_number %>">Edit</a>
+            <form method="post" action="/delete">
+            <input type = "hidden" name ="n" value = "<%=query.n%>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    
         </div>
+       
     </div>
 
 <%- include("bottom") %>
