@@ -145,20 +145,19 @@ app.get("/login", (req, res) => {
 app.post("/delete", (req, res) => {
  let employeedelete = req.body.n;
 
-//  console.log(JSON.stringify({employeeData}));
+
 
  employeedelete = parseInt(employeedelete);
 
-//  console.log(employeedelete)
-//   employeedelete = employeedelete.toString(); 
+
 
 
 
 
 const index = function findEmployeeNumber(employeeData) {
-  for(var i = 0; i < employeeData.length; ++i) {
-    var obj = arr[i];
-    if(obj.employee_number == employeedelete) {
+  for(var indexnum = 0; indexnum < employeeData.length; ++i) {
+    var object = arr[i];
+    if(object.employee_number == employeedelete) {
       return i;
     }
   }
@@ -168,7 +167,6 @@ const index = function findEmployeeNumber(employeeData) {
 
 
 
-//   console.log(index);
   employeeData.splice(index, 1);
 
   res.redirect("/");
